@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef, useState } from 'react';
 import * as d3 from 'd3';
 import { Node, Edge } from './ObsidianInterface';
@@ -68,7 +67,7 @@ export const GraphView: React.FC<GraphViewProps> = ({
       .selectAll("line")
       .data(edges)
       .enter().append("line")
-      .attr("stroke", "#4B5563")
+      .attr("stroke", "#D1D5DB")
       .attr("stroke-opacity", 0.6)
       .attr("stroke-width", 2);
 
@@ -102,7 +101,7 @@ export const GraphView: React.FC<GraphViewProps> = ({
         if (d.type === "platform") return "#06B6D4";
         return "#10B981";
       })
-      .attr("stroke", (d) => selectedNode?.id === d.id ? "#F59E0B" : "#374151")
+      .attr("stroke", (d) => selectedNode?.id === d.id ? "#F59E0B" : "#9CA3AF")
       .attr("stroke-width", (d) => selectedNode?.id === d.id ? 3 : 2);
 
     // Add labels
@@ -111,7 +110,7 @@ export const GraphView: React.FC<GraphViewProps> = ({
       .attr("text-anchor", "middle")
       .attr("dy", (d) => d.type === "identity" ? 35 : 30)
       .attr("font-size", "12px")
-      .attr("fill", "#E5E7EB")
+      .attr("fill", "#374151")
       .attr("font-weight", "500");
 
     // Add click handler
@@ -168,11 +167,11 @@ export const GraphView: React.FC<GraphViewProps> = ({
   }, [nodes, edges, dimensions, selectedNode, onNodeSelect]);
 
   return (
-    <div className="flex-1 bg-gray-900 relative overflow-hidden">
+    <div className="flex-1 bg-gray-50 relative overflow-hidden">
       <div className="absolute top-4 left-4 z-10">
-        <div className="bg-gray-800 rounded-lg p-3 border border-gray-700">
-          <h2 className="text-lg font-semibold text-white mb-2">Knowledge Graph</h2>
-          <div className="text-sm text-gray-400">
+        <div className="bg-white rounded-lg p-3 border border-gray-200 shadow-sm">
+          <h2 className="text-lg font-semibold text-gray-900 mb-2">Knowledge Graph</h2>
+          <div className="text-sm text-gray-600">
             <div className="flex items-center mb-1">
               <div className="w-3 h-3 rounded-full bg-purple-500 mr-2"></div>
               Identity
@@ -193,10 +192,10 @@ export const GraphView: React.FC<GraphViewProps> = ({
         ref={svgRef}
         width="100%"
         height="100%"
-        className="bg-gray-900"
+        className="bg-gray-50"
       />
       
-      <div className="absolute bottom-4 right-4 text-sm text-gray-400 bg-gray-800 rounded-lg p-2 border border-gray-700">
+      <div className="absolute bottom-4 right-4 text-sm text-gray-600 bg-white rounded-lg p-2 border border-gray-200 shadow-sm">
         Drag to move • Click to select • Scroll to zoom
       </div>
     </div>

@@ -131,35 +131,35 @@ export const ObsidianInterface: React.FC = () => {
   );
 
   return (
-    <div className="h-screen bg-gray-900 text-gray-100 flex overflow-hidden">
+    <div className="h-screen bg-gray-50 text-gray-900 flex overflow-hidden">
       {/* Sidebar */}
-      <div className="w-80 bg-gray-800 border-r border-gray-700 flex flex-col">
+      <div className="w-80 bg-white border-r border-gray-200 flex flex-col shadow-sm">
         {/* Header */}
-        <div className="p-4 border-b border-gray-700">
-          <h1 className="text-xl font-semibold text-white mb-4">Graph Notes</h1>
+        <div className="p-4 border-b border-gray-200">
+          <h1 className="text-xl font-semibold text-gray-900 mb-4">Graph Notes</h1>
           
           {/* Search */}
           <div className="relative">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500 w-4 h-4" />
             <input
               type="text"
               placeholder="Search nodes..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-10 pr-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-sm text-gray-100 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+              className="w-full pl-10 pr-4 py-2 bg-gray-50 border border-gray-300 rounded-lg text-sm text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
             />
           </div>
         </div>
 
         {/* Navigation */}
-        <div className="p-4 border-b border-gray-700">
+        <div className="p-4 border-b border-gray-200">
           <div className="flex space-x-2">
             <button
               onClick={() => setCurrentView('graph')}
               className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
                 currentView === 'graph'
                   ? 'bg-purple-600 text-white'
-                  : 'text-gray-400 hover:text-gray-100 hover:bg-gray-700'
+                  : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
               }`}
             >
               Graph View
@@ -170,7 +170,7 @@ export const ObsidianInterface: React.FC = () => {
               className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
                 currentView === 'note' && selectedNode
                   ? 'bg-purple-600 text-white'
-                  : 'text-gray-400 hover:text-gray-100 hover:bg-gray-700 disabled:opacity-50 disabled:cursor-not-allowed'
+                  : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed'
               }`}
             >
               Note Editor

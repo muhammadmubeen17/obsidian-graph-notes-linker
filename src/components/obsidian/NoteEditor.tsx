@@ -51,19 +51,19 @@ export const NoteEditor: React.FC<NoteEditorProps> = ({
   };
 
   return (
-    <div className="flex-1 bg-gray-900 flex flex-col">
+    <div className="flex-1 bg-gray-50 flex flex-col">
       {/* Header */}
-      <div className="bg-gray-800 border-b border-gray-700 p-4">
+      <div className="bg-white border-b border-gray-200 p-4 shadow-sm">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-3">
-            <div className={`px-3 py-1 rounded-full text-xs font-medium ${getNodeTypeColor(node.type)} bg-gray-700`}>
+            <div className={`px-3 py-1 rounded-full text-xs font-medium ${getNodeTypeColor(node.type)} bg-gray-100`}>
               {node.type}
             </div>
-            <h1 className="text-xl font-semibold text-white">{node.label}</h1>
+            <h1 className="text-xl font-semibold text-gray-900">{node.label}</h1>
           </div>
           <div className="flex items-center space-x-2">
             {note && (
-              <span className="text-sm text-gray-400">
+              <span className="text-sm text-gray-500">
                 Last modified: {formatDate(note.lastModified)}
               </span>
             )}
@@ -83,42 +83,42 @@ export const NoteEditor: React.FC<NoteEditorProps> = ({
         <div className="max-w-4xl mx-auto space-y-6">
           {/* Title Input */}
           <div>
-            <label className="block text-sm font-medium text-gray-300 mb-2">
+            <label className="block text-sm font-medium text-gray-700 mb-2">
               Note Title
             </label>
             <input
               type="text"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-              className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent text-lg"
+              className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent text-lg"
               placeholder="Enter note title..."
             />
           </div>
 
           {/* Node Information */}
-          <div className="bg-gray-800 rounded-lg p-4 border border-gray-700">
-            <h3 className="text-sm font-medium text-gray-300 mb-3">Node Information</h3>
+          <div className="bg-white rounded-lg p-4 border border-gray-200 shadow-sm">
+            <h3 className="text-sm font-medium text-gray-700 mb-3">Node Information</h3>
             <div className="grid grid-cols-2 gap-4 text-sm">
               <div>
-                <span className="text-gray-400">ID:</span>
-                <span className="ml-2 text-white font-mono">{node.id}</span>
+                <span className="text-gray-500">ID:</span>
+                <span className="ml-2 text-gray-900 font-mono">{node.id}</span>
               </div>
               <div>
-                <span className="text-gray-400">Type:</span>
+                <span className="text-gray-500">Type:</span>
                 <span className={`ml-2 font-medium ${getNodeTypeColor(node.type)}`}>
                   {node.type}
                 </span>
               </div>
               {node.data.status && (
                 <div>
-                  <span className="text-gray-400">Status:</span>
-                  <span className="ml-2 text-green-400">{node.data.status}</span>
+                  <span className="text-gray-500">Status:</span>
+                  <span className="ml-2 text-green-600">{node.data.status}</span>
                 </div>
               )}
               {node.data.reliable !== undefined && (
                 <div>
-                  <span className="text-gray-400">Reliable:</span>
-                  <span className={`ml-2 ${node.data.reliable ? 'text-green-400' : 'text-red-400'}`}>
+                  <span className="text-gray-500">Reliable:</span>
+                  <span className={`ml-2 ${node.data.reliable ? 'text-green-600' : 'text-red-600'}`}>
                     {node.data.reliable ? 'Yes' : 'No'}
                   </span>
                 </div>
@@ -128,14 +128,14 @@ export const NoteEditor: React.FC<NoteEditorProps> = ({
 
           {/* Content Editor */}
           <div>
-            <label className="block text-sm font-medium text-gray-300 mb-2">
+            <label className="block text-sm font-medium text-gray-700 mb-2">
               Note Content
             </label>
             <textarea
               value={content}
               onChange={(e) => setContent(e.target.value)}
               rows={20}
-              className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent resize-none font-mono text-sm leading-relaxed"
+              className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent resize-none font-mono text-sm leading-relaxed"
               placeholder="Write your notes here...
 
 You can document:

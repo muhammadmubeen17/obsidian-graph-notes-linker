@@ -44,7 +44,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
     <div className="flex-1 overflow-auto">
       {/* Nodes Section */}
       <div className="p-4">
-        <h2 className="text-sm font-semibold text-gray-300 mb-3 uppercase tracking-wide">
+        <h2 className="text-sm font-semibold text-gray-600 mb-3 uppercase tracking-wide">
           Nodes ({nodes.length})
         </h2>
         
@@ -55,8 +55,8 @@ export const Sidebar: React.FC<SidebarProps> = ({
               onClick={() => onNodeSelect(node)}
               className={`w-full text-left p-3 rounded-lg transition-all duration-200 group ${
                 selectedNode?.id === node.id
-                  ? 'bg-purple-600/20 border border-purple-500/50'
-                  : 'hover:bg-gray-700 border border-transparent'
+                  ? 'bg-purple-50 border border-purple-300'
+                  : 'hover:bg-gray-50 border border-transparent'
               }`}
             >
               <div className="flex items-center space-x-3">
@@ -66,14 +66,14 @@ export const Sidebar: React.FC<SidebarProps> = ({
                 
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center space-x-2">
-                    <span className="text-white font-medium truncate">
+                    <span className="text-gray-900 font-medium truncate">
                       {node.label}
                     </span>
                     {nodeHasNote(node.id) && (
-                      <Book className="w-3 h-3 text-purple-400 flex-shrink-0" />
+                      <Book className="w-3 h-3 text-purple-500 flex-shrink-0" />
                     )}
                   </div>
-                  <div className="text-xs text-gray-400 capitalize">
+                  <div className="text-xs text-gray-500 capitalize">
                     {node.type}
                   </div>
                 </div>
@@ -85,8 +85,8 @@ export const Sidebar: React.FC<SidebarProps> = ({
 
       {/* Recent Notes Section */}
       {notes.length > 0 && (
-        <div className="p-4 border-t border-gray-700">
-          <h2 className="text-sm font-semibold text-gray-300 mb-3 uppercase tracking-wide">
+        <div className="p-4 border-t border-gray-200">
+          <h2 className="text-sm font-semibold text-gray-600 mb-3 uppercase tracking-wide">
             Recent Notes ({notes.length})
           </h2>
           
@@ -102,15 +102,15 @@ export const Sidebar: React.FC<SidebarProps> = ({
                   <button
                     key={note.id}
                     onClick={() => onNodeSelect(node)}
-                    className="w-full text-left p-3 rounded-lg hover:bg-gray-700 transition-colors border border-transparent group"
+                    className="w-full text-left p-3 rounded-lg hover:bg-gray-50 transition-colors border border-transparent group"
                   >
                     <div className="flex items-start space-x-3">
-                      <Book className="w-4 h-4 text-purple-400 mt-0.5 flex-shrink-0" />
+                      <Book className="w-4 h-4 text-purple-500 mt-0.5 flex-shrink-0" />
                       <div className="flex-1 min-w-0">
-                        <div className="text-white font-medium text-sm truncate">
+                        <div className="text-gray-900 font-medium text-sm truncate">
                           {note.title}
                         </div>
-                        <div className="text-xs text-gray-400">
+                        <div className="text-xs text-gray-500">
                           {node.label} • {new Intl.DateTimeFormat('en-US', {
                             month: 'short',
                             day: 'numeric',
@@ -129,8 +129,8 @@ export const Sidebar: React.FC<SidebarProps> = ({
 
       {/* Search Results Info */}
       {searchTerm && (
-        <div className="p-4 border-t border-gray-700">
-          <div className="text-sm text-gray-400">
+        <div className="p-4 border-t border-gray-200">
+          <div className="text-sm text-gray-500">
             {nodes.length === 0 ? (
               <span>No nodes found for "{searchTerm}"</span>
             ) : (
